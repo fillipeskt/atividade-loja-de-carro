@@ -1,12 +1,12 @@
-import React from "react";
+// Header.js
+import React from 'react';
 
-function Cabeca(){
-            return(
-                <div className="cabeca">
-                    <div className="cabeca1">SaberasCar</div> 
-                    <div className="cabeca2">Novos e Usados</div>
-                </div>
-                
-            )
-};
-export {Cabeca};
+function Header() {
+  return (
+    <header className="header">
+      <h1>Lista de Produtos</h1>
+    </header>
+  );
+}
+
+export default Header;
