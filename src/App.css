@@ -28,13 +28,14 @@ body {
 }
 
 /* Estilo do header */
-.header {
-  background-color: #4CAF50; /* Verde */
-  color: white;
-  padding: 20px;
-  text-align: center;
-  font-size: 2em;
-  border-radius: 8px 8px 0 0;
+.header, .cabeca {
+  background-color: rgb(139, 196, 196);
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  font-size:xx-large ;
+  margin: 10px;
+  padding: 10px;
 }
 
 /* Estilo do container de cards internos */
@@ -198,4 +199,24 @@ form input[type="submit"]:hover {
   padding: 10px;
   text-align: center;
   border-radius: 0 0 8px 8px;
+}
+.cabeca1{
+
+  text-align: justify;
+  font-size:xx-large ;
+  margin: 5px;
+  margin-left: 50px;
+  
+}
+.cabeca2{
+
+  
+  text-align: justify;
+  
+  font-size:xx-large ;
+  margin: 5px;
+
+}
+.cabeca2{
+  margin-left: 20%;
 }

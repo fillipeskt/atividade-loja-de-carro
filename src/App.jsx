@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Body from './components/Body';
-import Footer from './components/Footer';
+import Footer from './components/footer';
 import './App.css';
 
 // URL da API simulada com json-server
@@ -12,6 +12,8 @@ function App() {
   const [products, setProducts] = useState([]);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+  const [ano, setAno] = useState("");
+  const [motor, setMotor] = useState("");
   const [editMode, setEditMode] = useState(false);
   const [editId, setEditId] = useState(null);
 
@@ -28,7 +30,7 @@ function App() {
   // Função para adicionar ou editar produto
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const product = { name, price: parseFloat(price) };
+    const product = {name, ano, motor, price: parseFloat(price) };
     let res;
 
     if (editMode) {
@@ -63,6 +65,8 @@ function App() {
 
     setName("");
     setPrice("");
+    setAno("");
+    setMotor("");
   };
 
   // Função para deletar um produto
@@ -76,8 +80,10 @@ function App() {
 
   // Função para iniciar a edição de um produto
   const handleEdit = (product) => {
-    setName(product.name);
+    setName(product.name); /*define o nome, faz aparecer no input*/
     setPrice(product.price);
+    setAno(product.ano);
+    setMotor(product.motor);
     setEditMode(true);
     setEditId(product.id);
   };
@@ -91,8 +97,12 @@ function App() {
         handleDelete={handleDelete}
         name={name}
         price={price}
+        ano={ano}
+        motor={motor}
         setName={setName}
         setPrice={setPrice}
+        setAno={setAno}
+        setMotor={setMotor}
         editMode={editMode}
         handleSubmit={handleSubmit}
       />

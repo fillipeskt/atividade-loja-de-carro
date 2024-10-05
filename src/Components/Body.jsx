@@ -2,7 +2,8 @@
 import React from 'react';
 
 function Body({ 
-  products, handleEdit, handleDelete, name, price, setName, setPrice, editMode, handleSubmit 
+    // todos os props de variaveis, sets e tudo que será usado 
+  products, handleEdit, handleDelete, name, price, motor, ano, setName, setPrice,setMotor, setAno, editMode, handleSubmit 
 }) {
   return (
     <main className="body">
@@ -11,13 +12,18 @@ function Body({
 
         {/* Card para a lista de produtos */}
         <div className="products-card">
-          <h2>Lista de Produtos</h2>
+          <h2>Lista de Carros</h2>
           <ul className="product-list">
-            {products.map((product) => (
-              <li key={product.id} className="product-item">
+            {products.map((product) => (          /*pra cada elemento da database*/
+            //    pra o id do elemento 
+              <li key={product.id} className="product-item"> 
                 <div className="product-details">
-                  <h3>{product.name}</h3>
-                  <p>R$ {product.price}</p>
+               {/* crie um h3 com o nome na div */}
+                  <h3>{product.name}</h3>  
+                  {/* crie um preço com o price na div  */}
+                  <p>R$ {product.price}</p>               
+                  <p>Motor: {product.motor}</p>               
+                  <p>Ano: {product.ano}</p>               
                 </div>
                 <div className="product-actions">
                   <button onClick={() => handleEdit(product)}>Editar</button>
@@ -32,6 +38,8 @@ function Body({
         <div className='form-card'>
           <h2>{editMode ? "Editar Produto" : "Adicionar Produto"}</h2>
           <form onSubmit={handleSubmit}>
+            {/* imput la embaixo criado para fazer o submit, que 
+            atualiza o valor usando a função handlesubmit que ta no app  */}
             <label>
               Nome:
               <input
@@ -51,7 +59,29 @@ function Body({
                 name='price'
                 onChange={(e) => setPrice(e.target.value)}
                 required
-                min="0.01"
+                
+              />
+            </label>
+            <label>
+              Ano:
+              <input
+                type="number"
+                value={ano}
+                name='ano'
+                onChange={(e) => setAno(e.target.value)}
+               
+                
+              />
+            </label>
+            <label>
+              Motorização:
+              <input
+                type="text"
+                value={motor}
+                name='motor'
+                onChange={(e) => setMotor(e.target.value)}
+                
+                
               />
             </label>
             <input type="submit" value={editMode ? "Atualizar" : "Criar"} />
